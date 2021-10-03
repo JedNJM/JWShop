@@ -22,7 +22,7 @@ $(document).ready(function(){
                 },
                 phone: {
                     required: true,
-                    minlength: 9
+                    minlength: 8
                 },
                 email: {
                     required: true,
@@ -44,7 +44,7 @@ $(document).ready(function(){
                 },
                 number: {
                     required: "come on, you have a number, don't you?",
-                    minlength: "your Number must have at least 9 characters"
+                    minlength: "your Number must have at least 8 characters"
                 },
                 email: {
                     required: "no email, no message"
