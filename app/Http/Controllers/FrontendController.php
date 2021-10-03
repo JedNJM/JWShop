@@ -353,11 +353,11 @@ class FrontendController extends Controller
         $data= $request->all();
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'status'=>'active'])){
             Session::put('user',$data['email']);
-            request()->session()->flash('success','Successfully login');
+            request()->session()->flash('success','Connexion réussie');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Invalid email and password pleas try again!');
+            request()->session()->flash('error','Adresse e-mail et mot de passe non valides, veuillez réessayer !');
             return redirect()->back();
         }
     }
@@ -365,7 +365,7 @@ class FrontendController extends Controller
     public function logout(){
         Session::forget('user');
         Auth::logout();
-        request()->session()->flash('success','Logout successfully');
+        request()->session()->flash('success','Déconnexion réussie');
         return back();
     }
 
@@ -384,11 +384,11 @@ class FrontendController extends Controller
         $check=$this->create($data);
         Session::put('user',$data['email']);
         if($check){
-            request()->session()->flash('success','Successfully registered');
+            request()->session()->flash('success','Enregistré avec succès ');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            request()->session()->flash('error','Veuillez réessayer!');
             return back();
         }
     }
@@ -409,16 +409,16 @@ class FrontendController extends Controller
         if(! Newsletter::isSubscribed($request->email)){
                 Newsletter::subscribePending($request->email);
                 if(Newsletter::lastActionSucceeded()){
-                    request()->session()->flash('success','Subscribed! Please check your email');
+                    request()->session()->flash('success','Abonné ! Merci de consulter vos emails');
                     return redirect()->route('home');
                 }
                 else{
                     Newsletter::getLastError();
-                    return back()->with('error','Something went wrong! please try again');
+                    return back()->with('error','Quelque chose s\'est mal passé ! Veuillez réessayer');
                 }
             }
             else{
-                request()->session()->flash('error','Already Subscribed');
+                request()->session()->flash('error','Déjà inscrit');
                 return back();
             }
     }

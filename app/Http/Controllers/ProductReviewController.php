@@ -61,10 +61,10 @@ class ProductReviewController extends Controller
         ];
         Notification::send($user,new StatusNotification($details));
         if($status){
-            request()->session()->flash('success','Thank you for your feedback');
+            request()->session()->flash('success','Merci pour votre avis');
         }
         else{
-            request()->session()->flash('error','Something went wrong! Please try again!!');
+            request()->session()->flash('error','Quelque chose s\'est mal passé ! Veuillez réessayer!');
         }
         return redirect()->back();
     }
@@ -119,14 +119,14 @@ class ProductReviewController extends Controller
             // ];
             // Notification::send($user,new StatusNotification($details));
             if($status){
-                request()->session()->flash('success','Review Successfully updated');
+                request()->session()->flash('success','Avis mis à jour avec succès');
             }
             else{
-                request()->session()->flash('error','Something went wrong! Please try again!!');
+                request()->session()->flash('error','Quelque chose s\'est mal passé ! Veuillez réessayer! ');
             }
         }
         else{
-            request()->session()->flash('error','Review not found!!');
+            request()->session()->flash('error','Avis introuvable!');
         }
 
         return redirect()->route('review.index');
@@ -143,10 +143,10 @@ class ProductReviewController extends Controller
         $review=ProductReview::find($id);
         $status=$review->delete();
         if($status){
-            request()->session()->flash('success','Successfully deleted review');
+            request()->session()->flash('success','Avis supprimé avec succès');
         }
         else{
-            request()->session()->flash('error','Something went wrong! Try again');
+            request()->session()->flash('error','Quelque chose s\'est mal passé ! Réessayer ');
         }
         return redirect()->route('review.index');
     }

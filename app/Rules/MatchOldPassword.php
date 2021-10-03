@@ -35,6 +35,6 @@ class MatchOldPassword implements Rule
      */
     public function message()
     {
-        return 'Current password must match with old password';
+        return 'Le mot de passe actuel doit correspondre à l\'ancien mot de passe ';
     }
 }
