@@ -18,26 +18,26 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Order No.</th>
-              <th>Name</th>
+              <th>Commande No.</th>
+              <th>Nom</th>
               <th>Email</th>
-              <th>Quantity</th>
+              <th>Quantité </th>
               <th>Charge</th>
-              <th>Total Amount</th>
-              <th>Status</th>
+              <th>Montant Total</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>S.N.</th>
-              <th>Order No.</th>
+              <th>Commande No.</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Quantity</th>
+              <th>Quantité</th>
               <th>Charge</th>
-              <th>Total Amount</th>
-              <th>Status</th>
+              <th>Montant Total</th>
+              <th>Statut</th>
               <th>Action</th>
               </tr>
           </tfoot>
@@ -79,7 +79,7 @@
         </table>
         <span style="float:right">{{$orders->links()}}</span>
         @else
-          <h6 class="text-center">No orders found!!! Please order some products</h6>
+          <h6 class="text-center">Aucune commande trouvée! Veuillez commander certains produits</h6>
         @endif
       </div>
     </div>

@@ -18,24 +18,24 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Name</th>
+              <th>Nom</th>
               <th>Email</th>
               <th>Photo</th>
-              <th>Join Date</th>
+              <th>Date d'inscription </th>
               <th>Role</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
                 <th>S.N.</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Email</th>
                 <th>Photo</th>
-                <th>Join Date</th>
+                <th>Date d'inscription </th>
                 <th>Role</th>
-                <th>Status</th>
+                <th>Statut</th>
                 <th>Action</th>
               </tr>
           </tfoot>
@@ -148,8 +148,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                      title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -158,7 +158,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sauvegarder !");
                     }
                 });
           })

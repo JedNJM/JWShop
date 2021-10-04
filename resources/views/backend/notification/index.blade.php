@@ -14,8 +14,8 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Time</th>
-          <th scope="col">Title</th>
+          <th scope="col">Temp</th>
+          <th scope="col">Titre</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -40,7 +40,7 @@
       </tbody>
     </table>
     @else
-      <h2>Notifications Empty!</h2>
+      <h2>Notifications Vide!</h2>
     @endif
   </div>
 </div>
@@ -87,17 +87,17 @@
             // alert(dataID);
             e.preventDefault();
             swal({
-                  title: "Are you sure?",
-                  text: "Once deleted, you will not be able to recover this data!",
-                  icon: "warning",
-                  buttons: true,
-                  dangerMode: true,
-              })
-              .then((willDelete) => {
-                  if (willDelete) {
-                    form.submit();
-                  } else {
-                      swal("Your data is safe!");
+                title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                       form.submit();
+                    } else {
+                        swal("Vos données sont en sauvegarder !");
                   }
               });
         })

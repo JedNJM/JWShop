@@ -19,17 +19,17 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Is Featured</th>
-              <th>Price</th>
-              <th>Discount</th>
-              <th>Size</th>
+              <th>Titre</th>
+              <th>Catégorie</th>
+              <th>Featured</th>
+              <th>Prix</th>
+              <th>Remise</th>
+              <th>Taille</th>
               <th>Condition</th>
-              <th>Brand</th>
+              <th>Marque</th>
               <th>Stock</th>
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -37,23 +37,23 @@
             <tr>
               <th>S.N.</th>
               <th>Title</th>
-              <th>Category</th>
-              <th>Is Featured</th>
-              <th>Price</th>
-              <th>Discount</th>
-              <th>Size</th>
+              <th>Catégorie</th>
+              <th>Featured</th>
+              <th>Prix</th>
+              <th>Remise</th>
+              <th>Taille</th>
               <th>Condition</th>
-              <th>Brand</th>
+              <th>Marque</th>
               <th>Stock</th>
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
-           
-            @foreach($products as $product)   
-              @php 
+
+            @foreach($products as $product)
+              @php
               $sub_cat_info=DB::table('categories')->select('title')->where('id',$product->child_cat_id)->get();
               // dd($sub_cat_info);
               $brands=DB::table('brands')->select('title')->where('id',$product->brand_id)->get();
@@ -77,13 +77,13 @@
                     <td>
                       @if($product->stock>0)
                       <span class="badge badge-primary">{{$product->stock}}</span>
-                      @else 
+                      @else
                       <span class="badge badge-danger">{{$product->stock}}</span>
                       @endif
                     </td>
                     <td>
                         @if($product->photo)
-                            @php 
+                            @php
                               $photo=explode(',',$product->photo);
                               // dd($photo);
                             @endphp
@@ -102,7 +102,7 @@
                     <td>
                         <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('product.destroy',[$product->id])}}">
-                      @csrf 
+                      @csrf
                       @method('delete')
                           <button class="btn btn-danger btn-sm dltBtn" data-id={{$product->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
@@ -119,7 +119,7 @@
                             </div>
                             <div class="modal-body">
                               <form method="post" action="{{ route('categorys.destroy',$user->id) }}">
-                                @csrf 
+                                @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
                               </form>
@@ -127,13 +127,13 @@
                           </div>
                         </div>
                     </div> --}}
-                </tr>  
+                </tr>
             @endforeach
           </tbody>
         </table>
         <span style="float:right">{{$products->links()}}</span>
         @else
-          <h6 class="text-center">No Products found!!! Please create Product</h6>
+          <h6 class="text-center">Auncun Produit Trouvé! Crée un Produit</h6>
         @endif
       </div>
     </div>
@@ -167,7 +167,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
-      
+
       $('#product-dataTable').DataTable( {
         "scrollX": false
             "columnDefs":[
@@ -181,7 +181,7 @@
         // Sweet alert
 
         function deleteData(id){
-            
+
         }
   </script>
   <script>
@@ -197,8 +197,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -207,7 +207,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sauvegarder !");
                     }
                 });
           })

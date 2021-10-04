@@ -52,18 +52,33 @@
                             $settings=DB::table('settings')->get();
                         @endphp                    
                         <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="logo"></a>
+                        
                     </div>
                     <!--/ End Logo -->
                     <!-- Search Form -->
+                    
                     <div class="search-top">
-                        <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                        <div class="top-search"> 
+
+                        
+                      <i><a href="{{route('cart')}}" class="single-icon"><i class="ti-bag"><span class="total-count">{{Helper::cartCount()}}</span></a></i> 
+
+
+                        <a href="#0">
+                       </i><i class="ti-search"></i> </a></div>
+                       
                         <!-- Search Form -->
                         <div class="search-top">
+                        
                             <form class="search-form">
+                            
                                 <input type="text" placeholder="Search here..." name="search">
+                                
                                 <button value="search" type="submit"><i class="ti-search"></i></button>
+                                
                             </form>
                         </div>
+                        
                         <!--/ End Search Form -->
                     </div>
                     <!--/ End Search Form -->

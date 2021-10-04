@@ -83,23 +83,23 @@
   </div>
   <div class="invoice-description">
     <div class="invoice-left-top float-left">
-      <h6>Invoice to</h6>
+      <h6>Facture pour</h6>
        <h3>{{$order->first_name}} {{$order->last_name}}</h3>
        <div class="address">
         <p>
-          <strong>Country: </strong>
+          <strong>Pays: </strong>
           {{$order->country}}
         </p>
         <p>
-          <strong>Address: </strong>
+          <strong>Adresse: </strong>
           {{ $order->address1 }} OR {{ $order->address2}}
         </p>
-         <p><strong>Phone:</strong> {{ $order->phone }}</p>
+         <p><strong>Téléphone:</strong> {{ $order->phone }}</p>
          <p><strong>Email:</strong> {{ $order->email }}</p>
        </div>
     </div>
     <div class="invoice-right-top float-right" class="text-right">
-      <h3>Invoice #{{$order->cart_id}}</h3>
+      <h3>Facture #{{$order->cart_id}}</h3>
       <p>{{ $order->created_at->format('D d m Y') }}</p>
       {{-- <img class="img-responsive" src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(150)->generate(route('admin.product.order.show', $order->id )))}}"> --}}
     </div>
@@ -107,13 +107,13 @@
   </div>
   <section class="order_details pt-3">
     <div class="table-header">
-      <h5>Order Details</h5>
+      <h5>Détails de la Commande </h5>
     </div>
     <table class="table table-bordered table-stripe">
       <thead>
         <tr>
-          <th scope="col" class="col-6">Product</th>
-          <th scope="col" class="col-3">Quantity</th>
+          <th scope="col" class="col-6">Produit</th>
+          <th scope="col" class="col-3">Quantité</th>
           <th scope="col" class="col-3">Total</th>
         </tr>
       </thead>
@@ -148,7 +148,7 @@
       @endif --}}
         <tr>
           <th scope="col" class="empty"></th>
-          <th scope="col" class="text-right ">Shipping:</th>
+          <th scope="col" class="text-right ">Livraison:</th>
           <th><span>${{number_format($order->delivery_charge,2)}}</span></th>
         </tr>
         <tr>
@@ -164,15 +164,15 @@
     </table>
   </section>
   <div class="thanks mt-3">
-    <h4>Thank you for your business !!</h4>
+    <h4>Merci Pour Votre Achat!</h4>
   </div>
   <div class="authority float-right mt-5">
     <p>-----------------------------------</p>
-    <h5>Authority Signature:</h5>
+    <h5>Signature d'autorité:</h5>
   </div>
   <div class="clearfix"></div>
 @else
-  <h5 class="text-danger">Invalid</h5>
+  <h5 class="text-danger">Invalide</h5>
 @endif
 </body>
 </html>

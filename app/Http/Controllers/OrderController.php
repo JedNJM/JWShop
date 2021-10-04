@@ -258,13 +258,13 @@ class OrderController extends Controller
     
             }
             else{
-                request()->session()->flash('error','Your order canceled. please try again');
+                request()->session()->flash('error','Votre commande annulée. Veuillez réessayer');
                 return redirect()->route('home');
     
             }
         }
         else{
-            request()->session()->flash('error','Invalid order numer please try again');
+            request()->session()->flash('error','Numéro de commande invalide, veuillez réessayer');
             return back();
         }
     }

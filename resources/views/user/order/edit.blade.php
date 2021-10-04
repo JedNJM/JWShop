@@ -10,16 +10,16 @@
       @csrf
       @method('PATCH')
       <div class="form-group">
-        <label for="status">Status :</label>
+        <label for="status">Statut :</label>
         <select name="status" id="" class="form-control">
-          <option value="">--Select Status--</option>
-          <option value="new" {{(($order->status=='new')? 'selected' : '')}}>New</option>
-          <option value="process" {{(($order->status=='process')? 'selected' : '')}}>process</option>
-          <option value="delivered" {{(($order->status=='delivered')? 'selected' : '')}}>Delivered</option>
-          <option value="cancel" {{(($order->status=='cancel')? 'selected' : '')}}>Cancel</option>
+          <option value="">--Choisir Statut--</option>
+          <option value="Nouveau" {{(($order->status=='new')? 'selected' : '')}}>Nouveau</option>
+          <option value="cours de livraison" {{(($order->status=='process')? 'selected' : '')}}>en en cours de livraison</option>
+          <option value="Livre" {{(($order->status=='delivered')? 'selected' : '')}}>Livré</option>
+          <option value="Annuler" {{(($order->status=='cancel')? 'selected' : '')}}>Annuler</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="submit" class="btn btn-primary">Mettre à jour</button>
     </form>
   </div>
 </div>

@@ -19,23 +19,23 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
+              <th>Titre</th>
               <th>Slug</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
+              <th>Titre</th>
               <th>Slug</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
               </tr>
           </tfoot>
           <tbody>
-            @foreach($brands as $brand)   
+            @foreach($brands as $brand)
                 <tr>
                     <td>{{$brand->id}}</td>
                     <td>{{$brand->title}}</td>
@@ -50,7 +50,7 @@
                     <td>
                         <a href="{{route('brand.edit',$brand->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('brand.destroy',[$brand->id])}}">
-                          @csrf 
+                          @csrf
                           @method('delete')
                               <button class="btn btn-danger btn-sm dltBtn" data-id={{$brand->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="modal-body">
                               <form method="post" action="{{ route('banners.destroy',$user->id) }}">
-                                @csrf 
+                                @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
                               </form>
@@ -75,13 +75,13 @@
                           </div>
                         </div>
                     </div> --}}
-                </tr>  
+                </tr>
             @endforeach
           </tbody>
         </table>
         <span style="float:right">{{$brands->links()}}</span>
         @else
-          <h6 class="text-center">No brands found!!! Please create brand</h6>
+          <h6 class="text-center">Aucune marque trouvée !!! Veuillez créer une marque</h6>
         @endif
       </div>
     </div>
@@ -115,7 +115,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
-      
+
       $('#banner-dataTable').DataTable( {
             "columnDefs":[
                 {
@@ -128,7 +128,7 @@
         // Sweet alert
 
         function deleteData(id){
-            
+
         }
   </script>
   <script>
@@ -144,8 +144,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -154,7 +154,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sauvegarder !");
                     }
                 });
           })
