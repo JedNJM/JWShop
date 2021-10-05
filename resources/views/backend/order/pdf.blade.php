@@ -151,7 +151,7 @@
           @php
             $shipping_charge=DB::table('shippings')->where('id',$order->shipping_id)->pluck('price');
           @endphp
-           @if(! @isset($shipping_char))
+           @if( $shipping_charge ->isEmpty())
             @else
             <th scope="col" class="text-right ">Livraison:</th>
             <th><span>{{number_format($shipping_charge[0],2)}} TND</span></th>

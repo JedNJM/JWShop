@@ -85,11 +85,6 @@
                           $shipping_charge=DB::table('shippings')->where('id',$order->shipping_id)->pluck('price');
                       @endphp
 
-                    @if(! @isset($shipping_char))
-                      @else
-                        <td>Frais de livraison</td>
-                        <td> : {{number_format($shipping_charge[0],2)}} TND</td>
-                    @endif
 
                     </tr>
                     <tr>
@@ -104,6 +99,32 @@
                         <td>Statut de paiement</td>
                         <td> : {{$order->payment_status}}</td>
                     </tr>
+                    <tr>
+                        <td>Les Produits et Quantité : </td>
+                        <td> @foreach($order->cart_info as $cart)
+                          @php
+                            $product=DB::table('products')->select('title')->where('id',$cart->product_id)->get();
+                          @endphp
+                            <tr>
+                              <td><span >
+                                  @foreach($product as $pro)
+                                    {{$pro->title}}
+                                  @endforeach
+                                </span></td>
+                              <td>x{{$cart->quantity}}</td>
+                              <td><span>{{number_format($cart->price,2)}} TND</span></td>
+                            </tr>
+                          @endforeach</td>
+
+         @if(! $shipping_charge->isEmpty())
+            <td>Livraison : </td>
+            <th scope="col" class="text-right "></th>
+            <th><span>{{number_format($shipping_charge[0],2)}} TND</span></th>
+                    @else
+
+                  @endif
+                    </tr>
+                </tr>
               </table>
             </div>
           </div>

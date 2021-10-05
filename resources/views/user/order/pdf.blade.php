@@ -148,8 +148,11 @@
       @endif --}}
         <tr>
           <th scope="col" class="empty"></th>
-          <th scope="col" class="text-right ">Livraison:</th>
-          <th><span>${{number_format($order->delivery_charge,2)}}</span></th>
+       @if( $shipping_charge ->isEmpty())
+            @else
+            <th scope="col" class="text-right ">Livraison:</th>
+            <th><span>{{number_format($shipping_charge[0],2)}} TND</span></th>
+          @endif
         </tr>
         <tr>
           <th scope="col" class="empty"></th>

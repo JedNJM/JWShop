@@ -123,8 +123,8 @@ class OrderController extends Controller
             $order_data['payment_status']='paid';
         }
         else{
-            $order_data['payment_method']='cashondelivery';
-            $order_data['payment_status']='Non Payer';
+            $order_data['payment_method']='cod';
+            $order_data['payment_status']='unpaid';
         }
         $order->fill($order_data);
         $status=$order->save();
