@@ -123,8 +123,8 @@ class OrderController extends Controller
             $order_data['payment_status']='paid';
         }
         else{
-            $order_data['payment_method']='cod';
-            $order_data['payment_status']='Unpaid';
+            $order_data['payment_method']='cashondelivery';
+            $order_data['payment_status']='Non Payer';
         }
         $order->fill($order_data);
         $status=$order->save();
@@ -146,7 +146,7 @@ class OrderController extends Controller
         }
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
 
-        // dd($users);        
+        // dd($users);
         request()->session()->flash('success','Votre produit placé avec succès dans la commande');
         return redirect()->route('home');
     }
@@ -250,17 +250,17 @@ class OrderController extends Controller
             elseif($order->status=="process"){
                 request()->session()->flash('success','Votre commande est en cours de traitement, veuillez patienter.');
                 return redirect()->route('home');
-    
+
             }
             elseif($order->status=="delivered"){
                 request()->session()->flash('success','Votre commande est livrée avec succès.');
                 return redirect()->route('home');
-    
+
             }
             else{
                 request()->session()->flash('error','Votre commande annulée. Veuillez réessayer');
                 return redirect()->route('home');
-    
+
             }
         }
         else{

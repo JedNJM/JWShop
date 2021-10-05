@@ -88,13 +88,13 @@
                     @if(! @isset($shipping_char))
                       @else
                         <td>Frais de livraison</td>
-                        <td> : $ {{number_format($shipping_charge[0],2)}}</td>
+                        <td> : {{number_format($shipping_charge[0],2)}} TND</td>
                     @endif
 
                     </tr>
                     <tr>
                         <td>Montant Total </td>
-                        <td> : $ {{number_format($order->total_amount,2)}}</td>
+                        <td> : {{number_format($order->total_amount,2)}} TND</td>
                     </tr>
                     <tr>
                       <td>Mode de Paiement </td>

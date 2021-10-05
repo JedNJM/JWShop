@@ -88,23 +88,23 @@
                       @if(! @isset($shipping_char))
                       @else
                         <td>Frais de livraison</td>
-                        <td> : $ {{number_format($shipping_charge[0],2)}}</td>
+                        <td> : {{number_format($shipping_charge[0],2)}} TND</td>
                     @endif
                     </tr>
                     <tr>
                       <td>Coupon</td>
-                      <td> : $ {{number_format($order->coupon,2)}}</td>
+                      <td> :  {{number_format($order->coupon,2)}} TND</td>
                     </tr>
                     <tr>
                         <td>Montant Total</td>
-                        <td> : $ {{number_format($order->total_amount,2)}}</td>
+                        <td> :  {{number_format($order->total_amount,2)}} TND</td>
                     </tr>
                     <tr>
-                        <td>Mode de Daiement</td>
+                        <td>Mode de Paiement</td>
                         <td> : @if($order->payment_method=='cod') Paiement à la livraison @else Paypal @endif</td>
                     </tr>
                     <tr>
-                        <td>Statut de paiement</td>
+                        <td>Statut de Paiement</td>
                         <td> : {{$order->payment_status}}</td>
                     </tr>
               </table>

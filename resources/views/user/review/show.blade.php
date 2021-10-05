@@ -81,11 +81,11 @@
                     <tr>
 
                         <td>Frais de Livraison </td>
-                        <td> : $ {{number_format($order->delivery_charge,2)}}</td>
+                        <td> :{{number_format($order->delivery_charge,2)}} TND</td>
                     </tr>
                     <tr>
                         <td>Montant Total </td>
-                        <td> : $ {{number_format($order->total_amount,2)}}</td>
+                        <td> :{{number_format($order->total_amount,2)}} TND</td>
                     </tr>
                     <tr>
                         <td>Mode de Paiement</td>

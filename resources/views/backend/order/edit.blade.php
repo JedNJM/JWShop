@@ -15,7 +15,7 @@
           <option value="">--Choisir Statut--</option>
           <option value="Nouveau" {{(($order->status=='new')? 'selected' : '')}}>Nouveau</option>
           <option value="cours de livraison" {{(($order->status=='process')? 'selected' : '')}}>en cours de livraison</option>
-          <option value="Livre" {{(($order->status=='delivered')? 'selected' : '')}}>Livré</option>
+          <option value="Livrer" {{(($order->status=='delivered')? 'selected' : '')}}>Livré</option>
           <option value="Annuler" {{(($order->status=='cancel')? 'selected' : '')}}>Annuler</option>
         </select>
       </div>

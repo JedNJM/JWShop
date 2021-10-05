@@ -15,7 +15,7 @@
 								$settings=DB::table('settings')->get();
 							@endphp
 							<p class="text">@foreach($settings as $data) {{$data->short_des}} @endforeach</p>
-							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">@foreach($settings as $data) {{$data->phone}} @endforeach</a></span></p>
+							<p class="call">Vous avez une question ? Appelez-nous 24/7 <span><a href="tel:123456789">@foreach($settings as $data) {{$data->phone}} @endforeach</a></span></p>
 						</div>
 						<!-- End Single Widget -->
 					</div>
@@ -24,11 +24,11 @@
 						<div class="single-footer links">
 							<h4>Information</h4>
 							<ul>
-								<li><a href="{{route('about-us')}}">About Us</a></li>
+								<li><a href="{{route('about-us')}}">À Propos de nous</a></li>
 								<li><a href="#">Faq</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
-								<li><a href="{{route('contact')}}">Contact Us</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="#">Termes & Conditions </a></li>
+								<li><a href="{{route('contact')}}">Contacter Nous</a></li>
+								<li><a href="#">Aide</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -36,13 +36,13 @@
 					<div class="col-lg-2 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer links">
-							<h4>Customer Service</h4>
+							<h4>Service Clients</h4>
 							<ul>
-								<li><a href="#">Payment Methods</a></li>
+								<li><a href="#">Mode de Paiement </a></li>
 								<li><a href="#">Money-back</a></li>
-								<li><a href="#">Returns</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Retour</a></li>
+								<li><a href="#">Livraison</a></li>
+								<li><a href="#">Politique de Confidentialité</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -50,7 +50,7 @@
 					<div class="col-lg-3 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer social">
-							<h4>Get In Tuch</h4>
+							<h4>Entrer en Contact </h4>
 							<!-- Single Widget -->
 							<div class="contact">
 								<ul>
@@ -88,7 +88,7 @@
 		</div>
 	</footer>
 	<!-- /End Footer Area -->
- 
+
 	<!-- Jquery -->
     <script src="{{asset('frontend/js/jquery.min.js')}}"></script>
     <script src="{{asset('frontend/js/jquery-migrate-3.0.0.js')}}"></script>
@@ -125,7 +125,7 @@
 	<!-- Active JS -->
 	<script src="{{asset('frontend/js/active.js')}}"></script>
 
-	
+
 	@stack('scripts')
 	<script>
 		setTimeout(function(){
