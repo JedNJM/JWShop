@@ -1,10 +1,10 @@
 @extends('backend.layouts.master')
 
-@section('title','Order Detail')
+@section('title','Détails Commande ')
 
 @section('main-content')
 <div class="card">
-<h5 class="card-header">Order       <a href="{{route('order.pdf',$order->id)}}" class=" btn btn-sm btn-primary shadow-sm float-right"><i class="fas fa-download fa-sm text-white-50"></i> Generate PDF</a>
+<h5 class="card-header">Ordre       <a href="{{route('order.pdf',$order->id)}}" class=" btn btn-sm btn-primary shadow-sm float-right"><i class="fas fa-download fa-sm text-white-50"></i> Générer un PDF </a>
   </h5>
   <div class="card-body">
     @if($order)
@@ -15,13 +15,13 @@
       <thead>
         <tr>
             <th>S.N.</th>
-            <th>Order No.</th>
-            <th>Name</th>
+            <th>Ordre N.</th>
+            <th>Nom</th>
             <th>Email</th>
-            <th>Quantity</th>
+            <th>Quantité</th>
             <th>Charge</th>
-            <th>Total Amount</th>
-            <th>Status</th>
+            <th>Montant Total</th>
+            <th>Statut</th>
             <th>Action</th>
         </tr>
       </thead>
@@ -63,22 +63,22 @@
         <div class="row">
           <div class="col-lg-6 col-lx-4">
             <div class="order-info">
-              <h4 class="text-center pb-4">ORDER INFORMATION</h4>
+              <h4 class="text-center pb-4">INFORMATIONS DE COMMANDE</h4>
               <table class="table">
                     <tr class="">
-                        <td>Order Number</td>
+                        <td>Numéro de commande</td>
                         <td> : {{$order->order_number}}</td>
                     </tr>
                     <tr>
-                        <td>Order Date</td>
+                        <td>Date de Commande </td>
                         <td> : {{$order->created_at->format('D d M, Y')}} at {{$order->created_at->format('g : i a')}} </td>
                     </tr>
                     <tr>
-                        <td>Quantity</td>
+                        <td>Quantité</td>
                         <td> : {{$order->quantity}}</td>
                     </tr>
                     <tr>
-                        <td>Order Status</td>
+                        <td>Statut de Commande</td>
                         <td> : {{$order->status}}</td>
                     </tr>
                     <tr>
@@ -87,36 +87,63 @@
                       @endphp
                       @if(! @isset($shipping_char))
                       @else
-                        <td>Shipping Charge</td>
-                        <td> : $ {{number_format($shipping_charge[0],2)}}</td>
+                        <td>Frais de livraison</td>
+                        <td> : {{number_format($shipping_charge[0],2)}} TND</td>
                     @endif
                     </tr>
                     <tr>
                       <td>Coupon</td>
-                      <td> : $ {{number_format($order->coupon,2)}}</td>
+                      <td> :  {{number_format($order->coupon,2)}} TND</td>
                     </tr>
                     <tr>
-                        <td>Total Amount</td>
-                        <td> : $ {{number_format($order->total_amount,2)}}</td>
+                        <td>Montant Total</td>
+                        <td> :  {{number_format($order->total_amount,2)}} TND</td>
                     </tr>
                     <tr>
-                        <td>Payment Method</td>
-                        <td> : @if($order->payment_method=='cod') Cash on Delivery @else Paypal @endif</td>
+                        <td>Mode de Paiement</td>
+                        <td> : @if($order->payment_method=='cod') Paiement à la livraison @else Paypal @endif</td>
                     </tr>
                     <tr>
-                        <td>Payment Status</td>
+                        <td>Statut de Paiement</td>
                         <td> : {{$order->payment_status}}</td>
                     </tr>
+
+<tr>
+                        <td>Les Produits et Quantité : </td>
+                        <td> @foreach($order->cart_info as $cart)
+                          @php
+                            $product=DB::table('products')->select('title')->where('id',$cart->product_id)->get();
+                          @endphp
+                            <tr>
+                              <td><span >
+                                  @foreach($product as $pro)
+                                    {{$pro->title}}
+                                  @endforeach
+                                </span></td>
+                              <td>x{{$cart->quantity}}</td>
+                              <td><span>{{number_format($cart->price,2)}} TND</span></td>
+                            </tr>
+                          @endforeach</td>
+                    </tr><tr>
+            @if(! $shipping_charge->isEmpty())
+            <td>Livraison : </td>
+            <th scope="col" class="text-right "></th>
+            <th><span>{{number_format($shipping_charge[0],2)}} TND</span></th>
+                    @else
+
+                  @endif
+                </tr>
+
               </table>
             </div>
           </div>
 
           <div class="col-lg-6 col-lx-4">
             <div class="shipping-info">
-              <h4 class="text-center pb-4">SHIPPING INFORMATION</h4>
+              <h4 class="text-center pb-4">INFORMATIONS SUR LA LIVRAISON</h4>
               <table class="table">
                     <tr class="">
-                        <td>Full Name</td>
+                        <td>Nom et prénom</td>
                         <td> : {{$order->first_name}} {{$order->last_name}}</td>
                     </tr>
                     <tr>
@@ -124,19 +151,19 @@
                         <td> : {{$order->email}}</td>
                     </tr>
                     <tr>
-                        <td>Phone No.</td>
+                        <td>Téléphone</td>
                         <td> : {{$order->phone}}</td>
                     </tr>
                     <tr>
-                        <td>Address</td>
+                        <td>Adresse</td>
                         <td> : {{$order->address1}}, {{$order->address2}}</td>
                     </tr>
                     <tr>
-                        <td>Country</td>
+                        <td>Pays</td>
                         <td> : {{$order->country}}</td>
                     </tr>
                     <tr>
-                        <td>Post Code</td>
+                        <td>Code Postal</td>
                         <td> : {{$order->post_code}}</td>
                     </tr>
               </table>

@@ -1,32 +1,32 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || Brand Edit')
+@section('title','Modifier Marque')
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Edit Brand</h5>
+    <h5 class="card-header">Modifier Marque</h5>
     <div class="card-body">
       <form method="post" action="{{route('brand.update',$brand->id)}}">
-        @csrf 
+        @csrf
         @method('PATCH')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-        <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$brand->title}}" class="form-control">
+          <label for="inputTitle" class="col-form-label">Titre<span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="title" placeholder="Entrer titre"  value="{{$brand->title}}" class="form-control">
         @error('title')
         <span class="text-danger">{{$message}}</span>
         @enderror
-        </div>        
+        </div>
         <div class="form-group">
-          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">Statut <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
-            <option value="active" {{(($brand->status=='active') ? 'selected' : '')}}>Active</option>
-            <option value="inactive" {{(($brand->status=='inactive') ? 'selected' : '')}}>Inactive</option>
+            <option value="active" {{(($brand->status=='active') ? 'selected' : '')}}>Actif</option>
+            <option value="inactive" {{(($brand->status=='inactive') ? 'selected' : '')}}>Inactif</option>
           </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group mb-3">
-           <button class="btn btn-success" type="submit">Update</button>
+           <button class="btn btn-success" type="submit">Mettre à jour</button>
         </div>
       </form>
     </div>
@@ -45,7 +45,7 @@
 
     $(document).ready(function() {
     $('#description').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Rédigez une description...",
         tabsize: 2,
         height: 150
     });

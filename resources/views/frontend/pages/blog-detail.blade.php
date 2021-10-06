@@ -10,8 +10,8 @@
                 <div class="col-12">
                     <div class="bread-inner">
                         <ul class="bread-list">
-                            <li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="javascript:void(0);">Blog Single Sidebar</a></li>
+                            <li><a href="{{route('home')}}">Accueil<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a href="javascript:void(0);">Blog  Sidebar</a></li>
                         </ul>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <!-- End Breadcrumbs -->
-        
+
     <!-- Start Blog Single -->
     <section class="blog-single section">
         <div class="container">
@@ -34,7 +34,7 @@
                                 <div class="blog-detail">
                                     <h2 class="blog-title">{{$post->title}}</h2>
                                     <div class="blog-meta">
-                                        <span class="author"><a href="javascript:void(0);"><i class="fa fa-user"></i>By {{$post->author_info['name']}}</a><a href="javascript:void(0);"><i class="fa fa-calendar"></i>{{$post->created_at->format('M d, Y')}}</a><a href="javascript:void(0);"><i class="fa fa-comments"></i>Comment ({{$post->allComments->count()}})</a></span>
+                                        <span class="author"><a href="javascript:void(0);"><i class="fa fa-user"></i>Par {{$post->author_info['name']}}</a><a href="javascript:void(0);"><i class="fa fa-calendar"></i>{{$post->created_at->format('M d, Y')}}</a><a href="javascript:void(0);"><i class="fa fa-comments"></i>Commenter ({{$post->allComments->count()}})</a></span>
                                     </div>
                                     <div class="sharethis-inline-reaction-buttons"></div>
                                     <div class="content">
@@ -50,7 +50,7 @@
                                             <div class="content-tags">
                                                 <h4>Tags:</h4>
                                                 <ul class="tag-inner">
-                                                    @php 
+                                                    @php
                                                         $tags=explode(',',$post->tags);
                                                     @endphp
                                                     @foreach($tags as $tag)
@@ -63,10 +63,10 @@
                                 </div>
                             </div>
                             @auth
-                            <div class="col-12 mt-4">			
+                            <div class="col-12 mt-4">
                                 <div class="reply">
                                     <div class="reply-head comment-form" id="commentFormContainer">
-                                        <h2 class="reply-title">Leave a Comment</h2>
+                                        <h2 class="reply-title">Laissez un Commentaire</h2>
                                         <!-- Comment Form -->
                                         <form class="form comment_form" id="commentForm" action="{{route('post-comment.store',$post->slug)}}" method="POST">
                                             @csrf
@@ -85,7 +85,7 @@
                                                 </div> --}}
                                                 <div class="col-12">
                                                     <div class="form-group  comment_form_body">
-                                                        <label>Your Message<span>*</span></label>
+         <label>Votre Message<span>*</span></label>
                                                         <textarea name="comment" id="comment" rows="10" placeholder=""></textarea>
                                                         <input type="hidden" name="post_id" value="{{ $post->id }}" />
                                                         <input type="hidden" name="parent_id" id="parent_id" value="" />
@@ -93,33 +93,33 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group button">
-                                                        <button type="submit" class="btn"><span class="comment_btn comment">Post Comment</span><span class="comment_btn reply" style="display: none;">Reply Comment</span></button>
+       <button type="submit" class="btn"><span class="comment_btn comment">Enovyer un Commentaire</span><span class="comment_btn reply" style="display: none;">Repondse Commentaire</span></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                                         <!-- End Comment Form -->
                                     </div>
-                                </div>			
+                                </div>
                             </div>
-                            	
-                            @else 
+
+                            @else
                             <p class="text-center p-5">
-                                You need to <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">Login</a> OR <a style="color:blue" href="{{route('register.form')}}">Register</a> for comment.
+                                Vous devez  <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">Vous Connecter</a> OU <a style="color:blue" href="{{route('register.form')}}">S'inscrire </a> pour soumettre un commentaire.
 
                             </p>
 
-                           
+
                             <!--/ End Form -->
-                            @endauth										
+                            @endauth
                             <div class="col-12">
                                 <div class="comments">
-                                    <h3 class="comment-title">Comments ({{$post->allComments->count()}})</h3>
+                                    <h3 class="comment-title">Commentaires ({{$post->allComments->count()}})</h3>
                                     <!-- Single Comment -->
                                     @include('frontend.pages.comment', ['comments' => $post->comments, 'post_id' => $post->id, 'depth' => 3])
                                     <!-- End Single Comment -->
-                                </div>									
-                            </div>	
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         <div class="single-widget category">
-                            <h3 class="title">Blog Categories</h3>
+                            <h3 class="title">Catégories de blogs </h3>
                             <ul class="categor-list">
                                 {{-- {{count(Helper::postCategoryList())}} --}}
                                 @foreach(Helper::postCategoryList('posts') as $cat)
@@ -146,7 +146,7 @@
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         <div class="single-widget recent-post">
-                            <h3 class="title">Recent post</h3>
+                            <h3 class="title">Post Récent </h3>
                             @foreach($recent_posts as $post)
                                 <!-- Single Post -->
                                 <div class="single-post">
@@ -156,16 +156,16 @@
                                     <div class="content">
                                         <h5><a href="#">{{$post->title}}</a></h5>
                                         <ul class="comment">
-                                        @php 
+                                        @php
                                             $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
                                         @endphp
                                             <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$post->created_at->format('d M, y')}}</li>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> 
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>
                                                 @foreach($author_info as $data)
                                                     @if($data->name)
                                                         {{$data->name}}
                                                     @else
-                                                        Anonymous
+                                                        Anonyme
                                                     @endif
                                                 @endforeach
                                             </li>
@@ -190,14 +190,14 @@
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         <div class="single-widget newsletter">
-                            <h3 class="title">Newslatter</h3>
+                            <h3 class="title">Newsletter</h3>
                             <div class="letter-inner">
-                                <h4>Subscribe & get news <br> latest updates.</h4>
+                                <h4>Abonnez-vous et recevez les <br> dernières mises à jour.</h4>
                                 <form action="{{route('subscribe')}}" method="POST">
                                     @csrf
                                     <div class="form-inner">
                                         <input type="email" name="email" placeholder="Enter your email">
-                                        <button type="submit" class="btn mt-2">Submit</button>
+                                        <button type="submit" class="btn mt-2">Envoyer</button>
                                     </div>
                                 </form>
                             </div>
@@ -216,7 +216,7 @@
 @push('scripts')
 <script>
 $(document).ready(function(){
-    
+
     (function($) {
         "use strict";
 
@@ -236,7 +236,7 @@ $(document).ready(function(){
             $( html).find('#parent_id').val(parent_id);
             $('#commentFormContainer').hide();
             $(this).parents('.comment-list').append(html).fadeIn('slow').addClass('appended');
-          });  
+          });
 
         $('.comment-list').on('click','.btn-reply.cancel',function(e){
             e.preventDefault();
@@ -252,7 +252,7 @@ $(document).ready(function(){
 
             $('#commentFormContainer').append(html);
         });
-        
+
  })(jQuery)
 })
 </script>

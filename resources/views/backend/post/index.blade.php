@@ -19,31 +19,31 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Tag</th>
-              <th>Author</th>
+              <th>Titre</th>
+              <th>Catégorie</th>
+              <th>Étiqueter</th>
+              <th>Auteur(e)</th>
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Tag</th>
-              <th>Author</th>
+              <th>Titre</th>
+              <th>Catégorie</th>
+              <th>Étiqueter</th>
+              <th>Auteur(e)</th>
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
-           
-            @foreach($posts as $post)   
-              @php 
+
+            @foreach($posts as $post)
+              @php
               $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
               // dd($sub_cat_info);
               // dd($author_info);
@@ -66,7 +66,7 @@
                         @else
                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
                         @endif
-                    </td>                   
+                    </td>
                     <td>
                         @if($post->status=='active')
                             <span class="badge badge-success">{{$post->status}}</span>
@@ -77,18 +77,18 @@
                     <td>
                         <a href="{{route('post.edit',$post->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('post.destroy',[$post->id])}}">
-                      @csrf 
+                      @csrf
                       @method('delete')
                           <button class="btn btn-danger btn-sm dltBtn" data-id={{$post->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
-                </tr>  
+                </tr>
             @endforeach
           </tbody>
         </table>
         <span style="float:right">{{$posts->links()}}</span>
         @else
-          <h6 class="text-center">No posts found!!! Please create Post</h6>
+          <h6 class="text-center">Aucun article trouvé! Veuillez créer un message </h6>
         @endif
       </div>
     </div>
@@ -122,7 +122,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
-      
+
       $('#product-dataTable').DataTable( {
             "columnDefs":[
                 {
@@ -135,7 +135,7 @@
         // Sweet alert
 
         function deleteData(id){
-            
+
         }
   </script>
   <script>
@@ -151,8 +151,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -161,7 +161,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont sauvegarder !");
                     }
                 });
           })

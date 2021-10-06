@@ -49,10 +49,10 @@ class BrandController extends Controller
         // return $data;
         $status=Brand::create($data);
         if($status){
-            request()->session()->flash('success','Brand successfully created');
+            request()->session()->flash('success','Marque créée avec succès');
         }
         else{
-            request()->session()->flash('error','Error, Please try again');
+            request()->session()->flash('error','Erreur, veuillez réessayer');
         }
         return redirect()->route('brand.index');
     }
@@ -78,7 +78,7 @@ class BrandController extends Controller
     {
         $brand=Brand::find($id);
         if(!$brand){
-            request()->session()->flash('error','Brand not found');
+            request()->session()->flash('error','Marque introuvable');
         }
         return view('backend.brand.edit')->with('brand',$brand);
     }
@@ -98,13 +98,13 @@ class BrandController extends Controller
             'title'=>'string|required',
         ]);
         $data=$request->all();
-       
+
         $status=$brand->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Brand successfully updated');
+            request()->session()->flash('success','Marque mise à jour avec succès ');
         }
         else{
-            request()->session()->flash('error','Error, Please try again');
+            request()->session()->flash('error','Erreur, veuillez réessayer');
         }
         return redirect()->route('brand.index');
     }
@@ -121,15 +121,15 @@ class BrandController extends Controller
         if($brand){
             $status=$brand->delete();
             if($status){
-                request()->session()->flash('success','Brand successfully deleted');
+                request()->session()->flash('success','Marque supprimée avec succès ');
             }
             else{
-                request()->session()->flash('error','Error, Please try again');
+                request()->session()->flash('error','Erreur, veuillez réessayer ');
             }
             return redirect()->route('brand.index');
         }
         else{
-            request()->session()->flash('error','Brand not found');
+            request()->session()->flash('error','Marque introuvable');
             return redirect()->back();
         }
     }

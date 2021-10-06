@@ -1,4 +1,4 @@
- <!-- Start Single Tab -->
+ {{-- <!-- Start Single Tab -->
  <div class="tab-pane fade show active" id="man" role="tabpanel">
     <div class="tab-single">
         <div class="row">
@@ -1096,4 +1096,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

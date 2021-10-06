@@ -67,8 +67,7 @@
           </a>
           <a class="dropdown-item" href="{{route('user.change.password.form')}}">
             <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
-            Change Password
-          </a>
+            Changer le mot de passe           </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();

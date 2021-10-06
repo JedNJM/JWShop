@@ -1,31 +1,31 @@
 @extends('backend.layouts.master')
 
-@section('title','Comment Edit')
+@section('title','Commentaire Modifier')
 
 @section('main-content')
 <div class="card">
-  <h5 class="card-header">Comment Edit</h5>
+  <h5 class="card-header">Commentaire Modifier</h5>
   <div class="card-body">
     <form action="{{route('comment.update',$comment->id)}}" method="POST">
       @csrf
       @method('PATCH')
       <div class="form-group">
-        <label for="name">By:</label>
+        <label for="name">Par:</label>
         <input type="text" disabled class="form-control" value="{{$comment->user_info->name}}">
       </div>
       <div class="form-group">
-        <label for="comment">comment</label>
+        <label for="comment">commentaire</label>
       <textarea name="comment" id="" cols="20" rows="10" class="form-control">{{$comment->comment}}</textarea>
       </div>
       <div class="form-group">
-        <label for="status">Status :</label>
+        <label for="status">Statut :</label>
         <select name="status" id="" class="form-control">
-          <option value="">--Select Status--</option>
-          <option value="active" {{(($comment->status=='active')? 'selected' : '')}}>Active</option>
-          <option value="inactive" {{(($comment->status=='inactive')? 'selected' : '')}}>Inactive</option>
+          <option value="">--Choisir Statut--</option>
+          <option value="active" {{(($comment->status=='active')? 'selected' : '')}}>Actif</option>
+          <option value="inactive" {{(($comment->status=='inactive')? 'selected' : '')}}>Inactif</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="submit" class="btn btn-primary">Mettre à jour</button>
     </form>
   </div>
 </div>
