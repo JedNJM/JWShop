@@ -147,7 +147,11 @@
                     </tr>
                     <tr>
                         <td>Adresse</td>
-                        <td> : {{$order->address1}}, {{$order->address2}}</td>
+                        <td> : {{$order->address1}}</td>
+                    </tr>
+                    <tr>
+                        <td>Detailles</td>
+                        <td> : {{$order->address2}}</td>
                     </tr>
                     <tr>
                         <td>Pays</td>

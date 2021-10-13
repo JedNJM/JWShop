@@ -113,11 +113,13 @@
                                                @php
                                                     $org=($product->price-($product->price*$product->discount)/100);
                                                 @endphp
-                                                @if(! $org = $product->price)
-                                                <p class="price"><del class="text-muted">{{number_format($product->price,2)}}TND</del>{{number_format($org,2)}} TND</p>
+                                                 @if (! $product->discount == 0)
+                                                <p class="price"><del class="text-muted">{{number_format($product->price,2)}}TND</del></p>
+                                                <p class="price"><div class="price">{{number_format($org,2)}} TND</div></p>
                                                 @else
+                                                <p class="price"><div class="price">{{number_format($product->price,2)}} TND</div></p>
                                                 @endif
-                                                <p class="price"><div class="text-muted">{{number_format($org,2)}} TND</div></p>
+
 
                                             </div>
                                         </div>
@@ -208,11 +210,11 @@
                                                     $after_discount=($product->price-($product->price*$product->discount)/100);
                                                 @endphp
 
-                                            @if (! $after_discount = $product->price)
+                                            @if (! $product->discount == 0)
                                             <span>{{number_format($after_discount,2)}} TND</span>
                                             <del style="padding-left:4%;">{{number_format($product->price,2)}} TND</del>
                                                 @else
-                                                <span>{{number_format($after_discount,2)}} TND</span>
+                                                <span>{{number_format($product->price,2)}} TND</span>
                                                 @endif
 
 
@@ -308,7 +310,11 @@
                                             @php
                                                 $after_discount=($product->price-($product->price*$product->discount)/100);
                                             @endphp
-                                            <h3><small><del class="text-muted">{{number_format($product->price,2)}}TND</del></small>    {{number_format($after_discount,2)}}TND  </h3>
+                                        @if(! $product->discount == 0)
+                                            <h3><small><del class="text-muted">{{number_format($product->price,2)}}TND</del></small>   <strong class="price"> {{number_format($after_discount,2)}}TND</strong>  </h3>
+                                            @else
+                                            <h3> <strong  class="price">{{number_format($product->price,2)}}TND  </strong>  /h3>
+                                            @endif
                                             <div class="quickview-peragraph">
                                                 <p>{!! html_entity_decode($product->summary) !!}</p>
                                             </div>

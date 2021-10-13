@@ -84,11 +84,11 @@
                                                 @php
                                                     $after_discount=($product_detail->price-(($product_detail->price*$product_detail->discount)/100));
                                                 @endphp
-                                                 @if (! $after_discount = $product_detail->price)
+                                                      @if(! $product_detail->discount == 0)
 												<p class="price"><span class="discount"> {{number_format($after_discount,2)}} TND</span><s>{{number_format($product_detail->price,2)}} TND</s> </p>
 												<p class="description">{!!($product_detail->summary)!!}</p>
                                                 @else
-                                                <p class="price"><span class="discount"> {{number_format($after_discount,2)}} TND</span><s></s></p>
+                                                <p class="price"><span class="discount"> {{number_format($product_detail->price,2)}} TND</span><s></s></p>
 												<p class="description">{!!($product_detail->summary)!!}</p>
                                                 @endif
 											</div>
@@ -108,6 +108,7 @@
 											@if($product_detail->size)
 												<div class="size mt-4">
 													<h4>Taille</h4>
+                                                    <h4>Vous pouvez spécifié vos tailles dans le formulaire quand vous passer à la page de commande!</h4>
 													<ul>
 														@php
 															$sizes=explode(',',$product_detail->size);

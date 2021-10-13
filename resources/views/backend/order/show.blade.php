@@ -36,13 +36,13 @@
             <td>${{number_format($order->total_amount,2)}}</td>
             <td>
                 @if($order->status=='new')
-                  <span class="badge badge-primary">{{$order->status}}</span>
+                  <span class="badge badge-primary">Nouveau</span>
                 @elseif($order->status=='process')
-                  <span class="badge badge-warning">{{$order->status}}</span>
+                  <span class="badge badge-warning">En Cours</span>
                 @elseif($order->status=='delivered')
-                  <span class="badge badge-success">{{$order->status}}</span>
+                  <span class="badge badge-success">Livré</span>
                 @else
-                  <span class="badge badge-danger">{{$order->status}}</span>
+                  <span class="badge badge-danger">Annuler</span>
                 @endif
             </td>
             <td>
@@ -79,7 +79,17 @@
                     </tr>
                     <tr>
                         <td>Statut de Commande</td>
-                        <td> : {{$order->status}}</td>
+                        <td> : @if ($order->status == 'new' )
+                            Nouveau
+                            @elseif ($order->status == 'process' )
+                            Livraison En Cour
+                            @elseif ($order->status == 'delivered' )
+                            Livré
+                            @else
+                            Annuler
+                            @endif
+
+                           </td>
                     </tr>
                     <tr>
                       @php
@@ -105,7 +115,12 @@
                     </tr>
                     <tr>
                         <td>Statut de Paiement</td>
-                        <td> : {{$order->payment_status}}</td>
+                        @if(  $order->status == 'delivered' )
+                        <td> : Payer </td>
+                           @else  
+                           <td> : Non Payer </td>
+                            @endif 
+                          
                     </tr>
 
 <tr>
@@ -156,7 +171,11 @@
                     </tr>
                     <tr>
                         <td>Adresse</td>
-                        <td> : {{$order->address1}}, {{$order->address2}}</td>
+                        <td> : {{$order->address1}}</td>
+                    </tr>
+                    <tr>
+                        <td>Detailles</td>
+                        <td> : {{$order->address2}}</td>
                     </tr>
                     <tr>
                         <td>Pays</td>

@@ -13,10 +13,10 @@
         <label for="status">Statut :</label>
         <select name="status" id="" class="form-control">
           <option value="">--Choisir Statut--</option>
-          <option value="Nouveau" {{(($order->status=='new')? 'selected' : '')}}>Nouveau</option>
-          <option value="cours de livraison" {{(($order->status=='process')? 'selected' : '')}}>en cours de livraison</option>
-          <option value="Livrer" {{(($order->status=='delivered')? 'selected' : '')}}>Livré</option>
-          <option value="Annuler" {{(($order->status=='cancel')? 'selected' : '')}}>Annuler</option>
+          <option value="new" {{(($order->status=='new')? 'selected' : '')}}>Nouveau</option>
+          <option value="process" {{(($order->status=='process')? 'selected' : '')}}>en cours de livraison</option>
+          <option value="delivered" {{(($order->status=='delivered')? 'selected' : '')}}>Livré</option>
+          <option value="cancel" {{(($order->status=='cancel')? 'selected' : '')}}>Annuler</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary">Mettre à jour</button>

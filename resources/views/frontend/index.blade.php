@@ -170,9 +170,9 @@
                                                 @php
                                                     $after_discount=($product->price-($product->price*$product->discount)/100);
                                                 @endphp
-                                                @if (! $after_discount = $product->price)
-                                                <span>{{number_format($after_discount,2)}}TND</span>
-                     <del style="padding-left:4%;">{{number_format($product->price,2)}}TND</del>
+                            @if (! $product->discount == 0)
+                            <span>{{number_format($after_discount,2)}}TND</span>
+                            <del style="padding-left:4%;">{{number_format($product->price,2)}}TND</del>
                                                     @else
                                                     <span>{{number_format($after_discount,2)}}TND</span>
                                                     @endif
@@ -268,11 +268,15 @@
                             <div class="product-content">
                                 <h3><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
                                 <div class="product-price">
+                                    @if (! $product->discount == 0)
                                     <span class="old">{{number_format($product->price,2)}} TND</span>
                                     @php
                                     $after_discount=($product->price-($product->price*$product->discount)/100)
                                     @endphp
                                     <span>{{number_format($after_discount,2)}} TND</span>
+                                    @else
+                                    <span class="old">{{number_format($product->price,2)}} TND</span>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -214,7 +214,7 @@
 																@endphp
 
 
-@if (! $after_discount = $product->price)
+@if (! $product->discount == 0)
 <span>{{number_format($after_discount,2)}} TND</span>
 <del>{{number_format($product->price,2)}} TND</del>
     @else

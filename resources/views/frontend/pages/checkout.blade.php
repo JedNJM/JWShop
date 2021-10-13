@@ -31,7 +31,7 @@
                         <div class="col-lg-8 col-12">
                             <div class="checkout-form">
                                 <h2>Faites votre commande ici</h2>
-                                <p>Vous pouvez vous inscrire et modifier les informations de votre compte afin de passer à la caisse plus rapidement</p>
+                                <p></p>
                                 <!-- Form -->
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
@@ -332,20 +332,22 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-group">
-                                            <label>Adresse 2</label>
-                                            <input type="text" name="address2" placeholder="" value="{{old('address2')}}">
-                                            @error('address2')
+                                            <label>Code Postal</label>
+                                            <input type="text" name="post_code" placeholder="" value="{{old('post_code')}}">
+                                            @error('post_code')
                                                 <span class='text-danger'>{{$message}}</span>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-group">
-                                            <label>Code Postal</label>
-                                            <input type="text" name="post_code" placeholder="" value="{{old('post_code')}}">
-                                            @error('post_code')
+                                            <label>Ajouter des Detailles (Tailles,Location etc.. )</label>
+                                            
+                                            <textarea type="" name="address2" placeholder="" value=""> </textarea>
+                                            @error('address2')
                                                 <span class='text-danger'>{{$message}}</span>
                                             @enderror
                                         </div>
@@ -422,7 +424,7 @@
                                 <div class="single-widget get-button">
                                     <div class="content">
                                         <div class="button">
-                                            <button type="submit" class="btn">Passer à la caisse </button>
+                                            <button type="submit" class="btn">Passer la Commande ! </button>
                                         </div>
                                     </div>
                                 </div>
