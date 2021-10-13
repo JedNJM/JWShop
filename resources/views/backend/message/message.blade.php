@@ -4,7 +4,7 @@
         <!-- Counter - Messages -->
         @if(count(Helper::messageList())>5)
             <span data-count="5" class="badge badge-danger badge-counter">5+</span>
-        @else 
+        @else
 
     <span data-count="{{count(Helper::messageList())}}" class="badge badge-danger badge-counter">{{count(Helper::messageList())}}</span>
 
@@ -13,7 +13,7 @@
     <!-- Dropdown - Messages -->
     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
         <h6 class="dropdown-header">
-        Message Center
+            Centre de messagerie
         </h6>
         <div id="message-items">
             @foreach(Helper::messageList() as $message)
@@ -21,7 +21,7 @@
                     <div class="dropdown-list-image mr-3">
                         @if($message->photo)
                         <img class="rounded-circle" src="{{$message->photo}}" alt="profile">
-                        @else 
+                        @else
                         <img class="rounded-circle" src="{{asset('backend/img/avatar.png')}}" alt="default img">
                         @endif
                         {{-- <div class="status-indicator bg-success"></div> --}}
@@ -31,8 +31,8 @@
                         <div class="small text-gray-500">{{$message->name}} · {{$message->created_at->diffForHumans()}}</div>
                     </div>
                 </a>
-                @if($loop->index+1==5) 
-                  @php 
+                @if($loop->index+1==5)
+                  @php
                     break;
                   @endphp
                 @endif
@@ -48,7 +48,7 @@
             </div>
             </a> --}}
         </div>
-        <a class="dropdown-item text-center small text-gray-500" href="{{route('message.index')}}">Read More Messages</a>
+        <a class="dropdown-item text-center small text-gray-500" href="{{route('message.index')}}">Lire plus de messages</a>
     </div>
 </div>
 
@@ -82,7 +82,7 @@
 
       if(message_counter<=5){
         $(message_counter_area).text( message_counter );
-      }else{ 
+      }else{
         $(message_counter_area).text('5+');
       };
 

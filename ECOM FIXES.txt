@@ -1,0 +1,5 @@
+change Discount Column to NULL in the database 
+Fix the storage:link by removing the APP_URL, Deleteting the storage folder inside the storage folder in the main project folder and the storage folder in Public
+fixed the shipment missing by adding if isset to the variable
+fixed the minimum characters for phone in the contact form in the javascript files in the asset folder 
+Fixed the problem with shipment not existing But Also made it so that it always exists,of course if it doesn't then no error will show

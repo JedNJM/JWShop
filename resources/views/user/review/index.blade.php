@@ -18,24 +18,24 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Review By</th>
-              <th>Product Title</th>
-              <th>Review</th>
-              <th>Rate</th>
+              <th>Avis Par</th>
+              <th>Titre du produit </th>
+              <th>Avis</th>
+              <th>Etoiles</th>
               <th>Date</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>S.N.</th>
-              <th>Review By</th>
-              <th>Product Title</th>
-              <th>Review</th>
-              <th>Rate</th>
+              <th>Avis Par</th>
+              <th>Titre du produit </th>
+              <th>Avis</th>
+              <th>Etoiles</th>
               <th>Date</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
               </tr>
           </tfoot>
@@ -82,7 +82,7 @@
         </table>
         <span style="float:right">{{$reviews->links()}}</span>
         @else
-          <h6 class="text-center">No reviews found!!!</h6>
+          <h6 class="text-center">Aucun avis trouvé !</h6>
         @endif
       </div>
     </div>
@@ -138,8 +138,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                   title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -148,7 +148,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sauvegarder !");
                     }
                 });
           })

@@ -15,20 +15,20 @@ class WishlistController extends Controller
     public function wishlist(Request $request){
         // dd($request->all());
         if (empty($request->slug)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error','Produits invalides');
             return back();
         }        
         $product = Product::where('slug', $request->slug)->first();
         // return $product;
         if (empty($product)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error','Produits invalides');
             return back();
         }
 
         $already_wishlist = Wishlist::where('user_id', auth()->user()->id)->where('cart_id',null)->where('product_id', $product->id)->first();
         // return $already_wishlist;
         if($already_wishlist) {
-            request()->session()->flash('error','You already placed in wishlist');
+            request()->session()->flash('error','Vous avez déjà placé dans la liste de souhaits');
             return back();
         }else{
             
@@ -41,7 +41,7 @@ class WishlistController extends Controller
             if ($wishlist->product->stock < $wishlist->quantity || $wishlist->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
             $wishlist->save();
         }
-        request()->session()->flash('success','Product successfully added to wishlist');
+        request()->session()->flash('success','Produit ajouté avec succès à la liste de souhaits');
         return back();       
     }  
     
@@ -49,10 +49,10 @@ class WishlistController extends Controller
         $wishlist = Wishlist::find($request->id);
         if ($wishlist) {
             $wishlist->delete();
-            request()->session()->flash('success','Wishlist successfully removed');
+            request()->session()->flash('success','Liste de souhaits supprimée avec succès');
             return back();  
         }
-        request()->session()->flash('error','Error please try again');
+        request()->session()->flash('error','Erreur veuillez réessayer');
         return back();       
     }     
 }

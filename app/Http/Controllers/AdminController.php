@@ -38,10 +38,10 @@ class AdminController extends Controller
         $data=$request->all();
         $status=$user->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Successfully updated your profile');
+            request()->session()->flash('success','Votre profil a été mis à jour avec succès');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            request()->session()->flash('error','Erreur Veuillez réessayer! ');
         }
         return redirect()->back();
     }
@@ -68,10 +68,10 @@ class AdminController extends Controller
         // return $settings;
         $status=$settings->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Setting successfully updated');
+            request()->session()->flash('success','Paramètre mis à jour avec succès ');
         }
         else{
-            request()->session()->flash('error','Please try again');
+            request()->session()->flash('error','Veuillez réessayer');
         }
         return redirect()->route('admin');
     }
@@ -86,9 +86,9 @@ class AdminController extends Controller
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
+
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-   
+
         return redirect()->route('admin')->with('success','Password successfully changed');
     }
 

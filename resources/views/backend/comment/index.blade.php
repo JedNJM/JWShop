@@ -18,29 +18,29 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Author</th>
-              <th>Post Title</th>
+              <th>Auteur(e)</th>
+              <th>Titre de l'article</th>
               <th>Message</th>
               <th>Date</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>S.N.</th>
-              <th>Author</th>
-              <th>Post Title</th>
+              <th>Auteur(e)</th>
+              <th>Titre de l'article</th>
               <th>Message</th>
               <th>Date</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
             @foreach($comments as $comment)
             {{-- {{$comment}}   --}}
-              @php 
+              @php
               $title=DB::table('posts')->select('title')->where('id',$comment->post_id)->get();
               @endphp
                 <tr>
@@ -59,18 +59,18 @@
                     <td>
                         <a href="{{route('comment.edit',$comment->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('comment.destroy',[$comment->id])}}">
-                          @csrf 
+                          @csrf
                           @method('delete')
                               <button class="btn btn-danger btn-sm dltBtn" data-id={{$comment->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
-                </tr>  
+                </tr>
             @endforeach
           </tbody>
         </table>
         <span style="float:right">{{$comments->links()}}</span>
         @else
-          <h6 class="text-center">No post comments found!!!</h6>
+          <h6 class="text-center">Aucun commentaire de publication trouvé</h6>
         @endif
       </div>
     </div>
@@ -97,7 +97,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
-      
+
       $('#order-dataTable').DataTable( {
             "columnDefs":[
                 {
@@ -110,7 +110,7 @@
         // Sweet alert
 
         function deleteData(id){
-            
+
         }
   </script>
   <script>
@@ -126,8 +126,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                title: "Êtes-vous sûr?",
+                    text: "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -136,7 +136,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sauvegarder !");
                     }
                 });
           })

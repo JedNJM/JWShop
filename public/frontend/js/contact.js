@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    
+
     (function($) {
         "use strict";
 
-    
+
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
@@ -35,23 +35,23 @@ $(document).ready(function(){
             },
             messages: {
                 name: {
-                    required: "come on, you have a name, don't you?",
-                    minlength: "your name must have at least 2 characters"
+                    required: "allez, vous avez un nom, n'est-ce pas ?",
+                    minlength: "votre nom doit avoir au moins 2 caractères"
                 },
                 subject: {
-                    required: "come on, you have a subject, don't you?",
-                    minlength: "your subject must have at least 4 characters"
+                    required: "allez, vous avez un sujet, n'est-ce pas ?",
+                    minlength: "votre sujet doit avoir au moins 4 caractères"
                 },
                 number: {
-                    required: "come on, you have a number, don't you?",
-                    minlength: "your Number must have at least 8 characters"
+                    required: "allez, vous avez un numéro, n'est-ce pas ? ",
+                    minlength: "votre numéro doit avoir au moins 8 caractères"
                 },
                 email: {
-                    required: "no email, no message"
+                    required: "pas de mail, pas de message"
                 },
                 message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "Your subject must have at least 10 characters"
+                    required: "euh...oui, vous devez écrire quelque chose pour envoyer ce formulaire.",
+                    minlength: "Votre sujet doit avoir au moins 10 caractères"
                 }
             },
             submitHandler: function(form) {
@@ -85,6 +85,6 @@ $(document).ready(function(){
             }
         })
     })
-        
+
  })(jQuery)
 })

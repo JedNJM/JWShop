@@ -97,24 +97,24 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Order No.</th>
-              <th>Name</th>
+              <th>Commande No.</th>
+              <th>Nom</th>
               <th>Email</th>
-              <th>Quantity</th>
-              <th>Total Amount</th>
-              <th>Status</th>
+              <th>Quantité </th>
+              <th>Montant Total</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>S.N.</th>
-              <th>Order No.</th>
-              <th>Name</th>
+              <th>Commande No.</th>
+              <th>Nom</th>
               <th>Email</th>
-              <th>Quantity</th>
-              <th>Total Amount</th>
-              <th>Status</th>
+              <th>Quantité </th>
+              <th>Montant Total</th>
+              <th>Statut</th>
               <th>Action</th>
               </tr>
           </tfoot>
@@ -150,7 +150,7 @@
                 </tr>  
               @endforeach
               @else
-                <td colspan="8" class="text-center"><h4 class="my-4">You have no order yet!! Please order some products</h4></td>
+                <td colspan="8" class="text-center"><h4 class="my-4">Vous n'avez pas encore de commande ! Veuillez commander certains produits</h4></td>
               @endif
           </tbody>
         </table>
